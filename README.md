@@ -6,9 +6,9 @@ To install Awake you will need [CMake](https://cmake.org/). I recommend installi
 
 Installing Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-Installing CMake: `brew install --cask cmake` 
+Installing CMake: `brew install --cask cmake`
 
-Git clone Awake repo: `cd /Awake/src/dir/` & `git clone https://github.com/Noah-Everett/Awake`
+Git clone Awake repo: `cd /Awake/src/dir/` & `git clone -b <version name> --depth 1 https://github.com/Noah-Everett/Awake`
 
 Build Awake `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local/bin` & `make`
 
