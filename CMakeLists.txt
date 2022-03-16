@@ -3,4 +3,6 @@ project(Awake)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Awake main.cpp)
+add_executable(awake main.cpp)
+
+install(TARGETS awake)
