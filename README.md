@@ -1,5 +1,5 @@
 # **Awake**
-Application to keep Mac awake while in clam shell mode (like [Amphetamine](https://www.google.com/search?q=amphetimine+app+store&rlz=1C5CHFA_enUS996US996&oq=amphetimine+app+store&aqs=chrome..69i57.3334j0j7&sourceid=chrome&ie=UTF-8#:~:text=Amphetamine%20on%20the,com%20%E2%80%BA%20app%20%E2%80%BA%20amphetamine)). Built for new MacBook Pros (from 2021) which, for some reason, don't allow Amphetamine to work.
+Application to keep Mac awake while in clamshell mode (like [Amphetamine](https://www.google.com/search?q=amphetimine+app+store&rlz=1C5CHFA_enUS996US996&oq=amphetimine+app+store&aqs=chrome..69i57.3334j0j7&sourceid=chrome&ie=UTF-8#:~:text=Amphetamine%20on%20the,com%20%E2%80%BA%20app%20%E2%80%BA%20amphetamine)). Built for new MacBook Pros (from 2021) which, for some reason, don't allow Amphetamine to work.
 
 (README syntax: `[]` denotes an optional argument, `<>` denotes a required argument)
 
@@ -16,11 +16,11 @@ Build Awake: `cd <Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B ./ -DC
 
 Install Awake: `make install` (puts `awake` executable in `~/.local/bin` or wherever else `-DCMAKE_INSTALL_PREFIX` is set to)
 
-Set the `PASSWORD` environment variable: `echo 'export PASSWORD="<password used for sudo>"' >> ~/.zshrc`. 
+Set the `PASSWORD` environment variable: `echo 'export PASSWORD="<password used for sudo>"' >> ~/.zshrc` & `source ~/.zshrc` 
 
 You're done! Awake should be installed and runnable in the terminal. 
 
 ## **Usage**
 To run Awake you can run `awake` from any directory in the terminal. For help statement run `awake -h` or `awake --help`.
 
-If running `awake` results in `PUT ERROR HERE`, make sure the `PASSWORD` environmental variable is set (put `export $PASSWORD="xx##"` in `~/.zshrc`).
+If running `awake` results in `zsh: segmentation fault  awake`, make sure the `PASSWORD` environmental variable is set (`~/.zshrc` should contain `export $PASSWORD="<password used for sudo>"`).

@@ -9,7 +9,7 @@ int main( int argc, char** argv )
         if( strcmp( argv[ i ], "-h" ) == 0 || strcmp( argv[ i ], "--help" ) == 0 )
         {
             cout << "awake has no command line arguments (besides help)." << endl;
-            cout << "If you encounter PUT ERROR HERE, make sure the PASSWORD envornmental variable is set."
+            cout << "If you encounter \"zsh: segmentation fault awake\", make sure the PASSWORD envornmental variable is set." << endl;
 
             return 0;
         }
