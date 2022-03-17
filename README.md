@@ -10,7 +10,7 @@ Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/
 
 Install CMake: `brew install [--cask] cmake`
 
-Clone the repository: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases). Then ``.
+Clone the repository: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases).
 
 Build Awake: `cd <Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local/bin` & `make`
 
