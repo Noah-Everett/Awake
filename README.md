@@ -4,14 +4,18 @@ Application to keep mac awake while in clam shell mode (like [Amphetamine](https
 ## **Usage**
 To install Awake you will need [CMake](https://cmake.org/). I recommend installing CMake via [Homebrew](https://brew.sh/). After installing the dependencies, the project repo can be downloaded via `git clone` and can be built and installed via CMake.
 
+**Syntax: `[]` denotes an optional argument, `<>` denotes a required argument.**
+
 Installing Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-Installing CMake: `brew install --cask cmake`
+Install CMake: `brew install [--cask] cmake`
 
-Git clone Awake repo: `cd /Awake/src/dir/` & `git clone -b <version name> --depth 1 https://github.com/Noah-Everett/Awake`
+Clone the repository: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases). Then `cd <dir/of/Awake/>`.
 
-Build Awake `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local/bin` & `make`
+Build Awake: `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local/bin` & `make`
 
-Install Awake `make install`
+Install Awake: `make install` (puts `awake` executable in `~/.local/bin` or wherever else `-DCMAKE_INSTALL_PREFIX` is set to)
+
+Set the `PASSWORD` environment variable: `echo 'export PASSWORD="<password used for sudo commands>"' >> ~/.zshrc`. If PUT ERROR HERE, make sure `PASSWORD` is set.
 
 You're done! Awake is installed and should be runnable from any directory. (run `awake`)
