@@ -12,7 +12,7 @@ Install CMake: `brew install [--cask] cmake`
 
 Get source code: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases)
 
-Build Awake: `cd <Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local/bin` & `make`
+Build Awake: `cd <Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B ./ -DCMAKE_INSTALL_PREFIX=~/.local` & `make`
 
 Install Awake: `make install` (puts `awake` executable in `~/.local/bin` or wherever else `-DCMAKE_INSTALL_PREFIX` is set to)
 
