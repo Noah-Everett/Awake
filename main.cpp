@@ -5,28 +5,20 @@ using namespace std;
 
 int main( int argc, char** argv )
 {
-    for( int i = 0; i < argc; i++ )
-        if( strcmp( argv[ i ], "-h" ) == 0 || strcmp( argv[ i ], "--help" ) == 0 )
-        {
-            cout << "awake has no command line arguments (besides help)." << endl;
-            cout << "If you encounter \"zsh: segmentation fault awake\", make sure the PASSWORD envornmental variable is set." << endl;
-
-            return 0;
-        }
-
-    string password = getenv( "PASSWORD" );
-    if( password != getenv( "PASSWORD" ) ) // this will never run as is PASSWORD is not set the resulting error will terminate the program
+    if( argc != 1 )
     {
-        cout << "Please set PASSWORD environmental variable" << endl;
-        cout << "Example: export $PASSWORD=\"xxxx\"" << endl;
+        cout << "awake has no command line arguments (besides help (-h || --help))." << endl;
+        cout << "If you encounter \"zsh: segmentation fault awake\", make sure the PASSWORD envornmental variable is set." << endl;
 
-        return -1;
+        return 0;
     }
 
-    string on = "echo " + password + " | sudo -S pmset -b sleep 0 2>/dev/null; echo " + password + " | sudo -S pmset -b disablesleep 0 2>/dev/null";
-    string off = "echo " + password + " | sudo -S pmset -b sleep 5 2>/dev/null; echo " + password + " | sudo -S pmset -b disablesleep 0 2>/dev/null";
+    string password = getenv( "PASSWORD" );
 
-    cout << "Turning sleep off with command: sudo pmset -b sleep 0; sudo pmset -b disablesleep 0" << endl;
+    string on = "echo " + password + " | sudo -S pmset -a sleep 0 2>/dev/null && sudo pmset -a hibernatemode 0 2>/dev/null && sudo pmset -a disablesleep 1 2>/dev/null";
+    string off = "echo " + password + " | sudo -S pmset -a sleep 1 2>/dev/null && sudo pmset -a hibernatemode 3 2>/dev/null && sudo pmset -a disablesleep 0 2>/dev/null";
+
+    cout << "Turning sleep off with: sudo pmset -b sleep 0 && sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1" << endl;
     system( on.c_str() );
 
     cout << "Do not terminate program" << endl;
@@ -34,7 +26,7 @@ int main( int argc, char** argv )
     string unpluged;
     cin >> unpluged;
 
-    cout << "Turning sleep off with command: sudo pmset -b sleep 5; sudo pmset -b disablesleep 0" << endl;
+    cout << "Turning sleep on with: sudo pmset -b sleep 1 && sudo pmset -a hibernatemode 3 && sudo pmset -a disablesleep 0" << endl;
     system( off.c_str() );
 
     cout << "Program ran successfully. Bye bye!" << endl;
