@@ -1,9 +1,15 @@
 #include "CmdLnArgParser.hpp"
 #include "Messenger.hpp"
-#include "../Misc/Conversions.hpp"
 
 using std::invalid_argument;
 using std::find;
+
+string ctos( char* cstr )
+{
+    string str( cstr );
+
+    return str;
+}
 
 parser::parser( int t_argc, char** t_argv,
                 const vector< string >& t_optsWArg_req, const vector< string >& t_optsWArg_opt,

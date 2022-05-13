@@ -1,3 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////////
+/// Awake                                                                        ///
+/// by Noah Everett                                                              ///
+///                                                                              ///
+/// Awake is an application to keep your Mac awake while in clamshell mode.      ///
+/// For more information, please visit https://github.com/Noah-Everett/Awake.    ///
+////////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <stdexcept>
 #include <stdio.h>
