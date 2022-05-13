@@ -7,7 +7,7 @@ messager::messager( ostream& t_ostream, const string& welcome,
     m_ostream = &t_ostream;
 
     *m_ostream << welcome << endl;
-    m_thread = new thread( &messager::outputMethod, this, k_pNotice, "Instance of \`messager\` class created.",
+    m_thread = new thread( &messager::outputMethod, this, "NOTICE", "Instance of \`messager\` class created.",
                            file, function, line );
 }
 

@@ -22,9 +22,9 @@ string exec( string cmd );
 bool isCharging();
 
 // Constant messages
-const string k_welcome = " ---------------------------------- \n"
-                         "| Welcome to Awake by Noah Everett |\n"
-                         " ---------------------------------- \n ";
+const string k_welcome = " ----------------------- \n"
+                         "| Awake by Noah Everett |\n"
+                         " ----------------------- \n ";
 const string k_help    = "Program Usage (<> denotes required arguments, [] denotes optional arguments):\n"
                          "  awake [-h               -> display usage statement]\n"
                          "        [-p <password>    -> system password for sudo]\n"
@@ -39,7 +39,7 @@ messager messager_c( cout, k_welcome, LOCATION );
 vector< string > optsWArg_req = {};
 vector< string > optsWArg_opt = { "-p" };
 vector< string > optsNArg_req = {};
-vector< string > optsNArg_opt = { "-h" };
+vector< string > optsNArg_opt = { "-h", "--help" };
 
 // User given arguments
 string password;
@@ -52,7 +52,10 @@ int main( int argc, char** argv )
     parser parser( argc, argv,
                    optsWArg_req, optsWArg_opt, optsNArg_req, optsNArg_opt );
 
-    messager_c.print( k_pNotice, '\n' + parser.getOptsArgs_string(), LOCATION );
+    if( argc == 1 )
+        messager_c.print( k_pNotice, "No user given command line options or arguments (-option argument).", LOCATION );
+    else
+        messager_c.print( k_pNotice, '\n' + parser.getOptsArgs_string(), LOCATION );
 
     int nCmdLnArgs = 1;
     if( parser.hasOpt( "-h" ) || parser.hasOpt( "--help" ) ) {
