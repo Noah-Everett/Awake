@@ -20,7 +20,24 @@ Set the `PASSWORD` environment variable: `echo 'export PASSWORD="<password used 
 
 You're done! Awake should be installed and runnable in the terminal. 
 
+## **Setup Shortcut**
+- Open `Shortcuts` (should already be on your Mac) 
+- Click the `+` in the top of the window
+- In the top left of the window, set the shortcuts name to be "Awake"
+- In the search bar on the right, search for "Terminal" and double click on "Run Shell Script"
+- In the "Run Shell Script" window, change the `echo "Hello World"` to `<awake installation location (~/.local/bin)>/awake -p <system password for sudo>`
+- If you wish to pin shortcut in menu bar or make a keyboard shortcut, click the sliding bars button in the upper right and check the "Pin in Menu Bar" box or click the "Add Keyboard Shortcut" button to set a keyboard shortcut (recommended keyboard shortcut: ⌥⌘A)
+
+You're done! Everything should be setup.
+
 ## **Usage**
-To run Awake you can run `awake` from any directory in the terminal. For help statement run `awake -h` or `awake --help`.
+
+#### Terminal
+To run Awake, you can run `awake` from any directory in the terminal (if `awake` is installed in `~/.local/bin`). For a help statement run `awake -h` or `awake --help`.
 
 If running `awake` results in `zsh: segmentation fault  awake`, make sure the `PASSWORD` environmental variable is set (`~/.zshrc` should contain `export $PASSWORD="<password used for sudo>"`).
+
+#### Shortcut
+To run the `Awake` shortcut, simply run the shortcut by either using a keyboard shortcut, through the menu bar, or in the `Shortcut` app. The program will terminate when the Mac stops charging or after 5 minutes of running. 
+
+NOTE: If the Mac was not charging when program was started the program will stop itself.
