@@ -74,8 +74,10 @@ int main( int argc, char** argv )
     ///////////////////////////////////////////////////////////////////////////////
     ///                              Main Method                                ///
     ///////////////////////////////////////////////////////////////////////////////
-    messager_c.print( k_pNotice, "Turning sleep off with: sudo pmset -b sleep 0 && sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1", LOCATION );
-    exec( "echo " + password + " | sudo -S pmset -a sleep 0 2>/dev/null && sudo pmset -a hibernatemode 0 2>/dev/null && sudo pmset -a disablesleep 1 2>/dev/null" );
+    messager_c.print( k_pNotice, "Turning sleep off with: sudo pmset -b sleep 0 && "
+                                 "sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1", LOCATION );
+    exec( "echo " + password + " | sudo -S pmset -a sleep 0 2>/dev/null && sudo pmset -a hibernatemode 0 2>/dev/null && "
+                               "sudo pmset -a disablesleep 1 2>/dev/null" );
 
     messager_c.print( k_pNotice, "Program will terminate when computer stops sharging.", LOCATION );
     time_t start, cur;
@@ -86,8 +88,12 @@ int main( int argc, char** argv )
     }
     messager_c.print( k_pNotice, "Charging stopped.", LOCATION );
 
-    messager_c.print( k_pNotice, "Turning sleep on with: sudo pmset -b sleep 1 && sudo pmset -a hibernatemode 3 && sudo pmset -a disablesleep 0",LOCATION );
-    exec( "echo " + password + " | sudo -S pmset -a sleep 1 2>/dev/null && sudo pmset -a hibernatemode 3 2>/dev/null && sudo pmset -a disablesleep 0 2>/dev/null" );
+    messager_c.print( k_pNotice, "Turning sleep on with: sudo pmset -b sleep 1 && "
+                                 "sudo pmset -a hibernatemode 3 && "
+                                 "sudo pmset -a disablesleep 0",LOCATION );
+    exec( "echo " + password + " | sudo -S pmset -a sleep 1 2>/dev/null && "
+                               "sudo pmset -a hibernatemode 3 2>/dev/null && "
+                               "sudo pmset -a disablesleep 0 2>/dev/null" );
 
     messager_c.print( k_pNotice, "Program ran successfully. Bye bye!", LOCATION );
 
