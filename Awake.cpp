@@ -33,7 +33,7 @@ const string k_help    = "Program Usage (<> denotes required arguments, [] denot
                          "  If you encounter \"zsh: segmentation fault awake\", make sure the PASSWORD environmental variable is set.";
 
 // Global console messenger
-messager messager_c( cout, k_welcome, LOCATION );
+messenger messenger_c( cout, k_welcome, LOCATION );
 
 // Possible arguments
 vector< string > optsWArg_req = {};
@@ -53,13 +53,13 @@ int main( int argc, char** argv )
                    optsWArg_req, optsWArg_opt, optsNArg_req, optsNArg_opt );
 
     if( argc == 1 )
-        messager_c.print( k_pNotice, "No user given command line options or arguments (-option argument).", LOCATION );
+        messenger_c.print( k_pNotice, "No user given command line options or arguments (-option argument).", LOCATION );
     else
-        messager_c.print( k_pNotice, '\n' + parser.getOptsArgs_string(), LOCATION );
+        messenger_c.print( k_pNotice, '\n' + parser.getOptsArgs_string(), LOCATION );
 
     int nCmdLnArgs = 1;
     if( parser.hasOpt( "-h" ) || parser.hasOpt( "--help" ) ) {
-        messager_c.print( k_pFatal, '\n' + k_help, LOCATION );
+        messenger_c.print( k_pFatal, '\n' + k_help, LOCATION );
         return 0;
     }
     if( parser.hasOpt( "-p" ) ) {
@@ -74,28 +74,28 @@ int main( int argc, char** argv )
     ///////////////////////////////////////////////////////////////////////////////
     ///                              Main Method                                ///
     ///////////////////////////////////////////////////////////////////////////////
-    messager_c.print( k_pNotice, "Turning sleep off with: sudo pmset -b sleep 0 && "
+    messenger_c.print( k_pNotice, "Turning sleep off with: sudo pmset -b sleep 0 && "
                                  "sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1", LOCATION );
     exec( "echo " + password + " | sudo -S pmset -a sleep 0 2>/dev/null && sudo pmset -a hibernatemode 0 2>/dev/null && "
                                "sudo pmset -a disablesleep 1 2>/dev/null" );
 
-    messager_c.print( k_pNotice, "Program will terminate when computer stops sharging.", LOCATION );
+    messenger_c.print( k_pNotice, "Program will terminate when computer stops sharging.", LOCATION );
     time_t start, cur;
     time( &start );
     time( &cur );
     while( isCharging() && int( cur - start ) < 300 ) {
         time( &cur );
     }
-    messager_c.print( k_pNotice, "Charging stopped.", LOCATION );
+    messenger_c.print( k_pNotice, "Charging stopped.", LOCATION );
 
-    messager_c.print( k_pNotice, "Turning sleep on with: sudo pmset -b sleep 1 && "
+    messenger_c.print( k_pNotice, "Turning sleep on with: sudo pmset -b sleep 1 && "
                                  "sudo pmset -a hibernatemode 3 && "
                                  "sudo pmset -a disablesleep 0",LOCATION );
     exec( "echo " + password + " | sudo -S pmset -a sleep 1 2>/dev/null && "
                                "sudo pmset -a hibernatemode 3 2>/dev/null && "
                                "sudo pmset -a disablesleep 0 2>/dev/null" );
 
-    messager_c.print( k_pNotice, "Program ran successfully. Bye bye!", LOCATION );
+    messenger_c.print( k_pNotice, "Program ran successfully. Bye bye!", LOCATION );
 
     return 0;
 }

@@ -24,7 +24,7 @@ You're done! Awake should be installed and runnable in the terminal.
 - Open `Shortcuts.app` (should already be on your Mac) 
 - Click the `+` in the top of the window
 - In the top left of the window, set the shortcuts name to "Awake"
-- In the search bar on the right, search for "Terminal" and double click on "Run Shell Script"
+- In the search bar on the right, search for "Terminal" and double-click on "Run Shell Script"
 - In the "Run Shell Script" window, change the `echo "Hello World"` to `~/.local/bin/awake -p <system password for sudo>`
 - If you wish to pin the shortcut in the menu bar or make a keyboard shortcut, click the sliding bars button in the upper right and check the "Pin in Menu Bar" box or click the "Add Keyboard Shortcut" button to set a keyboard shortcut (recommended keyboard shortcut: ⌥⌘A)
 

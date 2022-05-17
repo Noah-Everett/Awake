@@ -20,11 +20,11 @@ const string k_pWarning = "WARNING";
 const string k_pError   = "ERROR";
 const string k_pFatal   = "FATAL";
 
-class messager {
+class messenger {
     public:
-        messager( ostream& t_ostream = cout, const string& welcome = "",
+        messenger( ostream& t_ostream = cout, const string& welcome = "",
                   const string& file = __FILE__, const string& function = __FUNCTION__, const int& line = __LINE__ );
-       ~messager();
+       ~messenger();
 
         void print( const string& priority, const string& message,
                     const string& file, const string& function, const int& line );
@@ -37,6 +37,6 @@ class messager {
                            const string& file, const string& function, const int& line );
 };
 
-extern messager messager_c;
+extern messenger messenger_c;
 
 #endif
