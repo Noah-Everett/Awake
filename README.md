@@ -43,4 +43,4 @@ To run the `Awake` shortcut, simply run the shortcut by either using a keyboard 
 NOTE: If the Mac was not charging when program was started the program will stop itself without any user involvement.
 
 ## **Support**
-If you require any further assistance, feel free to contact me at `NoahEverett \at Gmail.com`.
+If you require any further assistance, feel free to contact me at `NoahEverett898 \at Gmail.com`.
