@@ -12,10 +12,17 @@
 #include <string>
 #include <time.h>
 
-#include "IO/CmdLnArgParser.hpp"
-#include "IO/Messenger.hpp"
+#include "CmdLnArgParser.hpp"
+#include "Messenger.hpp"
 
-using namespace std;
+using std::cout;
+using std::string;
+using std::vector;
+
+using Base::CmdLnArgParser::parser;
+using Base::Messenger::Verbosity::fatal_int;
+using Base::Messenger::Verbosity::info_int;
+using Base::Messenger::messenger_c;
 
 // Function templates
 string exec( string cmd );
@@ -33,7 +40,9 @@ const string k_help    = "Program Usage (<> denotes required arguments, [] denot
                          "  If you encounter \"zsh: segmentation fault awake\", make sure the PASSWORD environmental variable is set.";
 
 // Global console messenger
+namespace Base::Messenger {
 messenger messenger_c( cout, k_welcome, LOCATION );
+}
 
 // Possible arguments
 vector< string > optsWArg_req = {};
@@ -49,23 +58,15 @@ int main( int argc, char** argv )
     ///////////////////////////////////////////////////////////////////////////////
     ///                         Command Line Arguments                          ///
     ///////////////////////////////////////////////////////////////////////////////
-    parser parser( argc, argv,
-                   optsWArg_req, optsWArg_opt, optsNArg_req, optsNArg_opt );
+    parser parser( argc, argv, optsWArg_req, optsWArg_opt, optsNArg_req, optsNArg_opt );
 
-    if( argc == 1 )
-        messenger_c( k_pNotice, LOCATION ) << "No user given command line options or arguments (-option argument).";
-    else
-        messenger_c( k_pNotice, LOCATION ) << "Hello World! " << 1016 << " " << true << " " << pair( 420.69, 2 );//'\n';// << parser.getOptsArgs_string();
-
-    int nCmdLnArgs = 1;
     if( parser.hasOpt( "-h" ) || parser.hasOpt( "--help" ) ) {
-        messenger_c( k_pFatal, LOCATION ) << '\n';// << k_help;
+        messenger_c( fatal_int, LOCATION ) << '\n' << k_help;
         return 0;
     }
-    if( parser.hasOpt( "-p" ) ) {
+
+    if( parser.hasOpt( "-p" ) )
         password = parser.getArg_string( "-p" );
-        ++nCmdLnArgs;
-    }
     else
         password = getenv( "PASSWORD" );
 
@@ -74,32 +75,38 @@ int main( int argc, char** argv )
     ///////////////////////////////////////////////////////////////////////////////
     ///                              Main Method                                ///
     ///////////////////////////////////////////////////////////////////////////////
-    messenger_c( k_pNotice, LOCATION ) << "Turning sleep off with: sudo pmset -b sleep 0 && "
-                                                         "sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1";
+    messenger_c( info_int, LOCATION ) << "Turning sleep off with: `sudo pmset -b sleep 0 && "
+                                         "sudo pmset -a hibernatemode 0 && sudo pmset -a disablesleep 1`";
     exec( "echo " + password + " | sudo -S pmset -a sleep 0 2>/dev/null && sudo pmset -a hibernatemode 0 2>/dev/null && "
                                "sudo pmset -a disablesleep 1 2>/dev/null" );
 
-    messenger_c( k_pNotice, LOCATION ) << "Program will terminate when computer stops sharging.";
+    messenger_c( info_int, LOCATION ) << "Program will terminate when computer stops sharging.";
     time_t start, cur;
     time( &start );
     time( &cur );
     while( isCharging() && int( cur - start ) < 300 ) {
         time( &cur );
     }
-    messenger_c( k_pNotice, LOCATION ) << "Charging stopped.";
+    messenger_c( info_int, LOCATION ) << "Charging stopped.";
 
-    messenger_c( k_pNotice, LOCATION ) << "Turning sleep on with: sudo pmset -b sleep 1 && "
-                                                         "sudo pmset -a hibernatemode 3 && "
-                                                         "sudo pmset -a disablesleep 0";
+    messenger_c( info_int, LOCATION ) << "Turning sleep on with: `sudo pmset -b sleep 1 && "
+                                         "sudo pmset -a hibernatemode 3 && "
+                                         "sudo pmset -a disablesleep 0`";
     exec( "echo " + password + " | sudo -S pmset -a sleep 1 2>/dev/null && "
                                "sudo pmset -a hibernatemode 3 2>/dev/null && "
                                "sudo pmset -a disablesleep 0 2>/dev/null" );
 
-    messenger_c( k_pNotice, LOCATION ) << "Program ran successfully. Bye bye!";
+
+
+    ///////////////////////////////////////////////////////////////////////////////
+    ///                                End Program                              ///
+    ///////////////////////////////////////////////////////////////////////////////
+    messenger_c( info_int, LOCATION ) << "Program ran successfully. Bye bye!";
 
     return 0;
 }
 
+// Function declarations
 string exec( string cmd ) {
     char buffer[ 256 ];
     string out = "";
