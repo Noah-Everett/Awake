@@ -4,15 +4,15 @@ Awake is an application to keep your Mac awake while in clamshell mode (like [Am
 (README syntax: `[]` denotes an optional argument, `<>` denotes a required argument)
 
 ## **Installation**
-To install Awake you will need [CMake](https://cmake.org/). I recommend installing CMake via [Homebrew](https://brew.sh/). After installing CMake, Awake and Base (dependency) can be downloaded via `git` or manually, and Awake can be built and installed with CMake.
+To install [Awake](https://github.com/Noah-Everett/Awake) you will need [CMake](https://cmake.org/). I recommend installing CMake via [Homebrew](https://brew.sh/). After installing CMake, Awake and [Base](https://github.com/Noah-Everett/Base) (dependency) can be downloaded via `git` or manually, and Awake can be built and installed with CMake.
 
-Install [Homebrew](https://brew.sh/): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-Install [CMake](https://cmake.org/): `brew install [--cask] cmake`
+Install CMake: `brew install [--cask] cmake`
 
-Get [Awake](https://github.com/Noah-Everett/Awake)'s source code: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake.git` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases)
+Get Awake's source code: `cd </dir/to/put/Awake/>` & `git clone -b <version name> [--depth 1] https://github.com/Noah-Everett/Awake.git` or download the latest release from [here](https://github.com/Noah-Everett/Awake/releases)
 
-Get [Base](https://github.com/Noah-Everett/Base)'s source code: `cd </dir/to/put/Base/>` & `git clone -b v1.0.1 [--depth 1] https://github.com/Noah-Everett/Base.git` or download v1.0.1 from [here](https://github.com/Noah-Everett/Base/releases)
+Get Base's source code: `cd </dir/to/put/Base/>` & `git clone -b v1.0.1 [--depth 1] https://github.com/Noah-Everett/Base.git` or download v1.0.1 from [here](https://github.com/Noah-Everett/Base/releases)
 
 Setup Base: `source </path/to/Base/setup_base.sh>`
 
