@@ -16,9 +16,9 @@ Get [Base](https://github.com/Noah-Everett/Base)'s source code: `cd </dir/to/put
 
 Setup Base: `source </path/to/Base/setup_base.sh>`
 
-Build Awake: `cd </path/to/Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B . -DCMAKE_INSTALL_PREFIX=~/.local` & `make`
+Build Awake: `cd </path/to/Awake/>` & `mkdir build && cd build` & `cmake -S ../ -B .` & `make`
 
-Install Awake: `make install` (puts `awake` executable in `~/.local/bin` or wherever else `-DCMAKE_INSTALL_PREFIX` is set to)
+Install Awake: `cmake --install . [--prefix "</path/to/install/dir/>"]` (puts `Awake` executable in `/usr/local/bin/` or wherever `--prefix` is set to)
 
 Set the `PASSWORD` environment variable: `echo 'export PASSWORD="<system password for sudo>"' >> ~/.zshrc` & `source ~/.zshrc` 
 

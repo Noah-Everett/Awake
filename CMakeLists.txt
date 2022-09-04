@@ -16,3 +16,5 @@ add_executable( ${PROJECT_NAME} Awake.cpp )
 target_link_libraries( Awake Base )
 
 add_compile_options( -v )
+
+install( TARGETS Awake )
