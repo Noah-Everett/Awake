@@ -4,7 +4,7 @@ Awake is an application to keep your Mac awake while in clamshell mode (like [Am
 (README syntax: `[]` denotes an optional argument, `<>` denotes a required argument)
 
 ## **Installation**
-To install [Awake](https://github.com/Noah-Everett/Awake) you will need [CMake](https://cmake.org/). I recommend installing CMake via [Homebrew](https://brew.sh/). After installing CMake, Awake and [Base](https://github.com/Noah-Everett/Base) (dependency) can be downloaded via `git` or manually, and Awake can be built and installed with CMake.
+To install both [Awake](https://github.com/Noah-Everett/Awake) and its dependency [Base](https://github.com/Noah-Everett/Base), you will need [CMake](https://cmake.org/). I recommend installing CMake via [Homebrew](https://brew.sh/). After installing CMake, Awake and Base can be downloaded via `git` or manually, and Awake can be built and installed with CMake.
 
 Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
