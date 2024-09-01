@@ -1,5 +1,7 @@
 # **Awake**
-Awake is an application to keep your Mac awake while in clamshell mode (like [Amphetamine](https://www.google.com/search?q=amphetimine+app+store&rlz=1C5CHFA_enUS996US996&oq=amphetimine+app+store&aqs=chrome..69i57.3334j0j7&sourceid=chrome&ie=UTF-8#:~:text=Amphetamine%20on%20the,com%20%E2%80%BA%20app%20%E2%80%BA%20amphetamine)).
+Awake is an application to keep your Mac awake while in clamshell mode (like [Amphetamine](https://www.google.com/search?q=amphetimine+app+store&rlz=1C5CHFA_enUS996US996&oq=amphetimine+app+store&aqs=chrome..69i57.3334j0j7&sourceid=chrome&ie=UTF-8#:~:text=Amphetamine%20on%20the,com%20%E2%80%BA%20app%20%E2%80%BA%20amphetamine)). 
+
+Awake was created in the first couple months after Apple's release of Arm-based Macs. At this time Amphetamine did not work for these models. This was the motivation behind Awake. Amphetamine now works on these models which practically makes Awake redundent.
 
 (README syntax: `[]` denotes an optional argument, `<>` denotes a required argument)
 
